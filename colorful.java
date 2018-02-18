@@ -22,7 +22,7 @@ public class colorful{
 			hg = check(Integer.parseInt(args[1]), 0, 255);
 			hb = check(Integer.parseInt(args[2]), 0, 255);
 		}
-		log("さぁ始まったぞー。"+Integer.toString(width)+"x"+Integer.toString(width)+"もあるんだから気楽に待ってくれよなぁ");
+		log("It's just begun!");
 		create();
 	}
 
@@ -81,52 +81,12 @@ public class colorful{
 		}
 
 		progressBar(100);
-		log("画像生成中...");
-
-
-		/*for (int tm = 0; tm < 1; ++tm) {
-			for(int r = 0; r < 128; ++r){
-				for(int g = 0; g < 128; ++g){
-					for (int b = 0; b < 128; ++b) {
-						++f;
-						if( f % (int) (Math.pow(2, 21) / 100) == 0){
-							progressBar(f / (int) (Math.pow(2, 21) / 100));
-						}
-						int rr = 0,gg = 0,bb = 0;
-						int tr = random(4);
-						if(tr == 0){
-							rr = r; gg = g; bb = b;
-						}
-						if(tr == 1){
-							rr = g; gg = r; bb = b;
-						}
-						if(tr == 2){
-							rr = g; gg = r; bb = b;
-						}
-						if(tr == 3){
-							rr = r; gg = b; bb = g;
-						}
-						if(tr == 4){
-							rr = b; gg = b; bb = r;
-						}
-						int rx = random(1) == 0 ? f % width : (128 * 128 * 128 -f) % width;
-						int ry = random(1) == 0 ? f % height : (128 * 128 * 128 -f) % height;
-						for (int xx = 0; xx < 100; ++xx) {
-							for (int yy = 0; yy < 100; ++yy) {
-								int xxx = rx + xx < width ? rx + xx : width - 1;
-								int yyy = ry + yy < height ? ry + yy : height - 1;
-								pixels[width * xxx + yyy] = rgb(rr * 2,gg * 2,bb * 2);
-							}
-						}
-					}
-				}
-			}
-		}*/
+		log("Creating image...");
 
 
 		img.setRGB(0, 0, width, height, pixels, 0, width);
 		try{
-			ImageIO.write(img, "png", new File("./colorfulpic/colorful-"+randomString(10)+".png"));
+			ImageIO.write(img, "png", new File("./colorful-"+randomString(10)+".png"));
 		}catch(Exception e){
 
 		}
@@ -198,33 +158,4 @@ public class colorful{
     public static int myRound(double a){
     	return (int) (a + 0.5);
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
